@@ -45,7 +45,7 @@ jobs:
       - name: test with pytest
         run: |
           pip install pytest
-          pytest -v -s
+          pytest
 
       # - name: Login to Docker Hub
       #   uses: docker/login-action@v1
@@ -73,7 +73,6 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    #before running this code, let the job above named "build" finish, this needs build before we deploy
     needs: [build]
     environment:
       name: production
@@ -96,7 +95,7 @@ jobs:
           script: |
             cd app/src
             git pull
-            echo ${{secrets.PROD_PASSWORD}} | sudo -S systemctl restart fastapi
+            echo ${{secrets.PROD_PASSWORD}} | sudo -S systemctl restart api
       # login to our ubuntu
       # cd /app/src
       # git pull
