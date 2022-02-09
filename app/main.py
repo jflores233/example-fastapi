@@ -9,7 +9,7 @@ from .config import settings
 
 #tell sqlalchemy to auto create the tables for us
 #not really needed with alembic installed, setup/configured
-#models.Base.metadata.create_all(bind=engine)
+#models.Base.metadata.create_all(bind=engine) 
 
 #########################
 # https://www.youtube.com/watch?v=0sOvCWFmrtA

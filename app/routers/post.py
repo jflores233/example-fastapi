@@ -41,8 +41,9 @@ def create_post(post: schemas.PostCreate, db: Session = Depends(get_db), current
     return new_post
 
 
-@router.get("/{id}", response_model=schemas.Post)
-def get_post(id: int, response: Response, db: Session = Depends(get_db), current_user: int = Depends(oauth2.get_current_user)): #everything is a str, need to make it an int and validate it as an int
+
+@router.get("/{id}", response_model=schemas.PostOut)
+def get_post(id: int, db: Session = Depends(get_db), current_user: int = Depends(oauth2.get_current_user)): #everything is a str, need to make it an int and validate it as an int
     #cursor.execute("""select * from posts where id = %s""", (str(id)) )
     #posts = cursor.fetchone()
 

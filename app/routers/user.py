@@ -9,7 +9,7 @@ router = APIRouter(
     tags=["Users"]
 ) #tags is used for the docs http://127.0.0.1:8000/docs
 
-@router.post("", status_code=status.HTTP_201_CREATED, response_model=schemas.UserOut)
+@router.post("/", status_code=status.HTTP_201_CREATED, response_model=schemas.UserOut)
 def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)): #line 6 uses pydantic to validate data from POST
 
     # hash the password - user.password
