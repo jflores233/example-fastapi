@@ -34,4 +34,4 @@ app.include_router(vote.router)
 
 @app.get("/") #first path operation that matches, runs the code
 def root():
-    return {"message": "Invalid Domain"}
+    return {"message": "Invalid Domain CI/CD"}
